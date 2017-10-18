@@ -1,10 +1,8 @@
-## Dump 2017 - Installation Script
+## Dump 2017 - Install Script
 
-Scripts d'installation pour le dump 2017
+### Distribution Base : Fedora 26
 
-### Base : Fedora 26
+### How to use:
 
-### Installation:
-
-1. Copier le contenu du repo dans /tmp
-2. Lancer le script install_packages_dump.sh en tant qu'utilisateur root
+1. Copy repository content into /tmp and CD into /tmp
+2. Launch install_packages_dump.sh script as root
