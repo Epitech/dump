@@ -24,6 +24,6 @@ Yes, after installing Fedora, perform a [classic installation](https://www.howto
 
 ### After installing Fedora and Windows 10, it starts only on Windows 10, what should you do?#br
 
-In your BIOS, select the boot order, if a Fedora entry exists, put it first, otherwise the bios will usually suggest creating a custom entry: `\\EFI\\fedora\\grubx64.efi`, don't forget to place this custom entry first in the startup order. This procedure and its necessity depend on the type of computer on which the installation is made.
+In your BIOS, select the boot order, if a Fedora entry exists, put it first, otherwise the bios will usually suggest creating a custom entry: `\EFI\fedora\grubx64.efi`, don't forget to place this custom entry first in the startup order. This procedure and its necessity depend on the type of computer on which the installation is made.
 
 __Since Windows 10 Falls Creator (October 2017), it seems that Microsoft takes into account (sometimes) the existing grub and does not rewrite it, if you install Windows 10, remember to check the version of the downloaded ISO. __
