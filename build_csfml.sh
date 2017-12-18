@@ -67,10 +67,12 @@ g++ -Wl,--whole-archive \
 		CSFML/lib/libcsfml-graphics.a \
 		CSFML/lib/libcsfml-system.a \
 		CSFML/lib/libcsfml-window.a \
+		CSFML/lib/libcsfml-network.a \
 		SFML/lib/libsfml-audio-s.a \
 		SFML/lib/libsfml-graphics-s.a \
 		SFML/lib/libsfml-system-s.a \
 		SFML/lib/libsfml-window-s.a \
+		SFML/lib/libsfml-network-s.a \
 		-Wl,--no-whole-archive -shared -o $GRAPH_LIB_NAME \
 		-lFLAC \
 		-lfreetype \
