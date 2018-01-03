@@ -6,7 +6,7 @@
 
 ## Fedora 26 Installation
 
-[Installation](https://docs.fedoraproject.org/f26/install-guide/install/Preparing_for_Installation.html) of [Fedora 26 with the XFCE Desktop](https://spins.fedoraproject.org/xfce/download/index.html)
+[Installation](https://docs.fedoraproject.org/f26/install-guide/install/Preparing_for_Installation.html) of [Fedora 26 with the XFCE Desktop](http://archive.fedoraproject.org/pub/fedora/linux/releases/26/Spins/x86_64/iso/)
 
 ## Installing dump scripts
 
