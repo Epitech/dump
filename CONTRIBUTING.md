@@ -4,10 +4,7 @@ ____
 ____
 If you find a bug in the source code or a mistake in the documentation, you can help us by
 submitting an issue to the project issues page.
-Each issue should be tagged with at least :
-
-- a "related project" tag,
-- an "issue type and priority" tag, either "tech-debt" for technical debt issues, or one of improvement, defect or critical for bugs.
+Each issue should be tagged with at least an "issue type and priority" tag, either "tech-debt" for technical debt issues, or one of improvement, defect or critical for bugs.
 
 Even better you can submit a Merge Request with a fix.
 
@@ -17,6 +14,7 @@ Before you submit your merge request consider the following guidelines:
 
 * Search for an open or closed Merge Request
   that relates to your submission. You don't want to duplicate effort.
+* Fork the project and clone it locally
 * Make your changes in a new git branch:
 
     ```shell
@@ -24,7 +22,7 @@ Before you submit your merge request consider the following guidelines:
     ```
 
 * Create your patch, **including appropriate test cases**.
-* Run the full project test suite,
+* Run the full project test suite (if any exists),
   and ensure that all tests pass.
 * Commit your changes using a descriptive commit message that follows our
   [commit message conventions](#git-commit-guideline). Adherence to the [commit message conventions](#git-commit-guideline) is required,
@@ -38,10 +36,10 @@ Before you submit your merge request consider the following guidelines:
 * Push your branch to Gitlab:
 
     ```shell
-    git push origin my-fix-branch
+    git push --set-upstream origin my-fix-branch
     ```
 
-In Gitlab, send a merge request to `master`.
+In Gitlab, send a merge request to `master` accross forks.
 If we suggest changes, then:
 
 * Make the required updates.
