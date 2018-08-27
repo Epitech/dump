@@ -59,7 +59,7 @@ packages_list=(boost-devel.x86_64
 	       unzip.x86_64
 	       valgrind.x86_64
 	       vim
-	       emacs
+	       emacs-nox
 	       which.x86_64
 	       xcb-util-image.x86_64
 	       xcb-util-image-devel.x86_64
@@ -101,7 +101,6 @@ packages_list=(boost-devel.x86_64
 	       ocaml-SDL-devel
 	       qemu
 	       emacs-tuareg
-	       xemacs-tuareg
 	       libvirt
 	       libvirt-devel
 	       virt-install
@@ -111,11 +110,10 @@ packages_list=(boost-devel.x86_64
 	       libgudev-devel
 	       php.x86_64
 	       php-devel.x86_64
-	       php-mcrypt.x86_64
 	       php-bcmath.x86_64
-	       php-cli.x86_64   
-	       php-devel.x86_64 
-	       php-gd.x86_64    
+	       php-cli.x86_64
+	       php-devel.x86_64
+	       php-gd.x86_64
 	       php-mbstring.x86_64
 	       php-mysqlnd.x86_64
 	       php-pdo.x86_64
@@ -126,7 +124,8 @@ packages_list=(boost-devel.x86_64
 	       php-gettext-gettext.noarch
 	       php-phar-io-version.noarch
 	       php-theseer-tokenizer.noarch
-	       @xfce-desktop-environment)
+	       SFML
+	       SFML-devel)
 
 for package in "${packages_list[@]}"
 do

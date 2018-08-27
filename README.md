@@ -4,13 +4,13 @@
 
 [Classic installation](https://www.howtogeek.com/197559/how-to-install-windows-10-on-your-pc/) of a [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10) on the machine, don't forget to leave some room on the hard drive for Fedora (minimum 50 GB recommended)
 
-## Fedora 26 Installation
+## Fedora 28 Installation
 
-[Installation](https://docs.fedoraproject.org/f26/install-guide/install/Preparing_for_Installation.html) of [Fedora 26 with the XFCE Desktop](http://archive.fedoraproject.org/pub/fedora/linux/releases/26/Spins/x86_64/iso/)
+[Installation](https://docs.fedoraproject.org/f28/install-guide/install/Preparing_for_Installation.html) of [Fedora 28 with the XFCE Desktop](http://archive.fedoraproject.org/pub/fedora/linux/releases/28/Spins/x86_64/iso/)
 
 ## Installing dump scripts
 
-Download [installation scripts](https://gitlab.com/EpitechContent/dump2017) to `/tmp`
+Download [installation scripts](https://gitlab.com/EpitechContent/dump) to `/tmp`
 
 Go to `/tmp` (cd) and `chmod +x install_packages_dump.sh`
 
