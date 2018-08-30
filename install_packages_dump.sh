@@ -127,7 +127,7 @@ packages_list=(boost-devel.x86_64
 	       SFML
 	       SFML-devel)
 
-dnf -y install ${packages_list}
+dnf -y install ${packages_list[@]}
 
 # PHP Runkit
 git clone https://github.com/runkit7/runkit7.git
