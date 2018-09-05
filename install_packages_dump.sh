@@ -143,7 +143,8 @@ cp blih.py /usr/bin/blih
 ./build_csfml.sh
 
 # CONFIG EMACS
-mkdir /usr/share/confemacs/
-cp -R ./epitech-emacs/* /usr/share/confemacs/.
-ln -s /usr/share/confemacs/INSTALL.sh /usr/bin/confemacs
-
+git clone https://gitlab.com/EpitechContent/epitech-emacs.git
+cd epitech-emacs
+git checkout c7b472aeced93e2262a640baa570696371f6809e
+./INSTALL.sh system
+cd .. && rm -rf epitech-emacs
