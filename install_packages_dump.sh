@@ -145,6 +145,6 @@ cp blih.py /usr/bin/blih
 # CONFIG EMACS
 git clone https://gitlab.com/EpitechContent/epitech-emacs.git
 cd epitech-emacs
-git checkout 9896e29db5e5dc30c9a35865a2f34291796f46af
+git checkout 16b01610ada8fd2507d19fe1383b0a78c4df3d8f
 ./INSTALL.sh system
 cd .. && rm -rf epitech-emacs
