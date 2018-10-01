@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 
 clear
-echo "PACKAGES FOR DUMP 2017 : INSTALLATION"
+echo "INSTALLING PACKAGES FOR EPITECH'S DUMP"
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
