@@ -33,6 +33,10 @@ packages_list=(boost-devel.x86_64
 	       SDL-static.x86_64
 	       SDL2-static.x86_64
 	       SDL2-devel.x86_64
+	       SDL2_ttf.x86_64
+	       SDL2_ttf-devel.x86_64
+	       SDL2_image.x86_64
+	       SDL2_image-devel.x86_64
 	       libX11-devel.x86_64
 	       libXext-devel.x86_64
 	       ltrace.x86_64
