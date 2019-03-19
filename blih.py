@@ -5,7 +5,7 @@
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
-# modification, are permitted providing that the following conditions 
+# modification, are permitted providing that the following conditions
 # are met:
 # 1. Redistributions of source code must retain the above copyright
 #    notice, this list of conditions and the following disclaimer.
@@ -162,6 +162,7 @@ def usage_repository():
     print ()
     print ('Commands :')
     print ('\tcreate repo\t\t\t-- Create a repository named "repo"')
+    print ('\tdelete repo\t\t\t-- Delete a repository named "repo"')
     print ('\tinfo repo\t\t\t-- Get the repository metadata')
     print ('\tgetacl repo\t\t\t-- Get the acls set for the repository')
     print ('\tlist\t\t\t\t-- List the repositories created')
