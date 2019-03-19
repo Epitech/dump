@@ -37,6 +37,8 @@ packages_list=(boost-devel.x86_64
 	       SDL2_ttf-devel.x86_64
 	       SDL2_image.x86_64
 	       SDL2_image-devel.x86_64
+	       libcaca.x86-64
+	       libcaca-devel.x86_64
 	       libX11-devel.x86_64
 	       libXext-devel.x86_64
 	       ltrace.x86_64
