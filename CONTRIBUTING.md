@@ -1,4 +1,4 @@
-# **Contributing to EpitechContent**
+# **Contributing to Epitech**
 ____
 ## **Found an Issue?**
 ____
@@ -6,13 +6,13 @@ If you find a bug in the source code or a mistake in the documentation, you can 
 submitting an issue to the project issues page.
 Each issue should be tagged with at least an "issue type and priority" tag, either "tech-debt" for technical debt issues, or one of improvement, defect or critical for bugs.
 
-Even better you can submit a Merge Request with a fix.
+Even better you can submit a Pull Request with a fix.
 
-## **Submitting a Merge Request**
+## **Submitting a Pull Request**
 ____
-Before you submit your merge request consider the following guidelines:
+Before you submit your pull request consider the following guidelines:
 
-* Search for an open or closed Merge Request
+* Search for an open or closed Pull Request
   that relates to your submission. You don't want to duplicate effort.
 * Fork the project and clone it locally
 * Make your changes in a new git branch:
@@ -33,19 +33,19 @@ Before you submit your merge request consider the following guidelines:
     ```
   Note: the optional commit `-a` command line option will automatically "add" and "rm" edited files.
 
-* Push your branch to Gitlab:
+* Push your branch to Github:
 
     ```shell
     git push --set-upstream origin my-fix-branch
     ```
 
-In Gitlab, send a merge request to `master` accross forks.
+In Github, send a pull request to `master` accross forks.
 If we suggest changes, then:
 
 * Make the required updates.
 * Re-run the full test suite to ensure tests are still passing.
 * Commit your changes to your branch (e.g. `my-fix-branch`).
-* Push the changes to your Gitlab repository (this will update your Pull Request).
+* Push the changes to your Github repository (this will update your Pull Request).
 
 If the PR gets too outdated we may ask you to rebase and force push to update the PR:
 
@@ -54,16 +54,16 @@ git rebase master -i
 git push origin my-fix-branch -f
 ```
 
-_WARNING: Squashing or reverting commits and force-pushing thereafter may remove Gitlab comments
+_WARNING: Squashing or reverting commits and force-pushing thereafter may remove Github comments
 on code that were previously made by you or others in your commits. Avoid any form of rebasing
 unless necessary._
 
-#### After your merge request is merged
+#### After your pull request is merged
 
-After your merge request is merged, you can safely delete your branch and pull the changes
+After your pull request is merged, you can safely delete your branch and pull the changes
 from the main (upstream) repository:
 
-* Delete the remote branch on Gitlab either through the Gitlab web UI or your local shell as follows:
+* Delete the remote branch on Github either through the Github web UI or your local shell as follows:
 
     ```shell
     git push origin --delete my-fix-branch
