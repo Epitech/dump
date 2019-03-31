@@ -45,7 +45,7 @@ class blih:
         else:
             self.token_calc()
         if user == None:
-            self._user = getpass.getuser()
+            self._user = os.environ.get('BLIH_USER', getpass.getuser())
         else:
             self._user = user
         self._verbose = verbose
