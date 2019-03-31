@@ -40,14 +40,13 @@ version = 1.7
 class blih:
     def __init__(self, baseurl='https://blih.epitech.eu/', user=None, token=None, verbose=False, user_agent='blih-' + str(version)):
         self._baseurl = baseurl
+        self._user = user
         if token:
             self._token = token
         else:
             self.token_calc()
-        if user == None:
-            self._user = os.environ.get('BLIH_USER', getpass.getuser())
-        else:
-            self._user = user
+        if self._user == None:
+           self._user = os.environ.get('BLIH_USER', getpass.getuser())
         self._verbose = verbose
         self._useragent = user_agent
 
@@ -60,7 +59,10 @@ class blih:
     token = property(token_get, token_set)
 
     def token_calc(self):
-        self._token = bytes(hashlib.sha512(bytes(getpass.getpass(), 'utf8')).hexdigest(), 'utf8')
+        if 'BLIH_TOKEN' in os.environ and self._user == None:
+            self._token = bytes(os.getenv('BLIH_TOKEN'), 'utf8')
+        else :
+            self._token = bytes(hashlib.sha512(bytes(getpass.getpass(), 'utf8')).hexdigest(), 'utf8')
 
     def sign_data(self, data=None):
         signature = hmac.new(self._token, msg=bytes(self._user, 'utf8'), digestmod=hashlib.sha512)
