@@ -154,3 +154,5 @@ cd epitech-emacs
 git checkout 431df95085337217bbc834e28cc0f09e11b2caf3
 ./INSTALL.sh system
 cd .. && rm -rf epitech-emacs
+
+install -m 644 bash_completion.d/blih /usr/share/bash-completion/completions

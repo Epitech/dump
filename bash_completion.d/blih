@@ -1,0 +1,105 @@
+#!/usr/bin/env bash
+
+_blih_sshkey() {
+	local commands=(
+		upload
+		list
+		delete
+	)
+	__blih_arg "_blih_sshkey"
+}
+
+_blih_repository() {
+	local commands=(
+		create
+		delete
+		info
+		getacl
+		list
+		setacl
+	)
+	__blih_arg "_blih_repository"
+	return 0
+}
+
+__blih_binary_flags() {
+	local parts=( $1 )
+	local IFS='|'
+	local extglob=$( echo "${parts[*]}" )
+	echo "@($extglob)"
+}
+
+__blih_get_next_command() {
+	local binary_flags=$1
+	local counter=$command_pos
+	local in_arg=0
+	(( counter++ ))
+	while [ "$counter" -lt "$COMP_CWORD" ]; do
+		case "${COMP_WORDS[$counter]}" in
+			$(__blih_binary_flags "$binary_flags"))
+				;;
+			-*)
+				in_arg=1
+				flag=${COMP_WORDS[$counter]}
+				;;
+			*)
+				if [ "$in_arg" -eq "0" ]; then
+					command_pos=$counter
+					command=${COMP_WORDS[$counter]}
+					return 0
+				fi
+				in_arg=0
+				;;
+		esac
+		(( counter++ ))
+	done
+	if [ "$in_arg" -ne "0" ]; then
+		return 2
+	fi
+	return 1
+}
+
+__blih_arg() {
+	__blih_get_next_command "$2"
+	case $? in
+		0)
+			local completions_func=$1_${command}
+			declare -F $completions_func >/dev/null && $completions_func
+			;;
+		1)
+			case "$cur" in
+				-*)
+					COMPREPLY=( $( compgen -W '${options[*]}' -- $cur ) );;
+				*)
+					COMPREPLY=( $( compgen -W '${commands[*]}' -- $cur ) );;
+			esac
+			;;
+		2)
+			local completions_func=$1_${flag//-/_}
+			declare -F $completions_func >/dev/null && $completions_func
+	esac
+}
+
+_blih() {
+	COMPREPLY=()
+	local cur=${COMP_WORDS[COMP_CWORD]}
+	local command
+	local command_pos=0
+	local flag
+
+	local commands=(
+		repository
+		sshkey
+		whoami
+	)
+	local options=(
+		-u --user
+		-v --verbose
+		-b --baseurl
+		-t --token
+	)
+	__blih_arg "_blih" "-v --verbose"
+	return 0
+}
+
+complete -F _blih blih blih.py
