@@ -6,6 +6,7 @@ _blih_sshkey() {
 		list
 		delete
 	)
+	local options
 	__blih_arg "_blih_sshkey"
 }
 
@@ -18,6 +19,7 @@ _blih_repository() {
 		list
 		setacl
 	)
+	local options
 	__blih_arg "_blih_repository"
 	return 0
 }
