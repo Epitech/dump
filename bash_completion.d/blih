@@ -63,7 +63,7 @@ __blih_arg() {
 	__blih_get_next_command "$2"
 	case $? in
 		0)
-			local completions_func=$1_${command}
+			local completions_func=$1_${command//-/_}
 			declare -F $completions_func >/dev/null && $completions_func
 			;;
 		1)
