@@ -1,5 +1,63 @@
 #!/usr/bin/env bash
 
+__blih_fill_repo() {
+	if [[ -n "$BLIH_USER" && -n "$BLIH_TOKEN" ]] ; then
+		local tmp=$(blih repository list)
+		if [ "$?" -eq "0" ]; then
+			echo "${tmp[*]}"
+		fi
+	fi
+}
+
+__blih_select_repo() {
+	__blih_get_next_command
+	if [ "$?" -eq "1" ];then 
+		local repos=$(__blih_fill_repo)
+		COMPREPLY=( $( compgen -W '${repos[*]}' -- $cur ) )
+	fi
+}
+
+_blih_repository_getacl() {
+	__blih_select_repo
+}
+
+_blih_repository_setacl() {
+	__blih_select_repo
+}
+
+_blih_repository_info() {
+	__blih_select_repo
+}
+
+_blih_repository_delete() {
+	__blih_select_repo
+}
+
+_blih_repository_setacl() {
+	__blih_get_next_command
+	if [ "$?" -eq "1" ];then
+		local repos=$(__blih_fill_repo)
+		COMPREPLY=( $( compgen -W '${repos[*]}' -- $cur ) )
+	fi
+}
+
+__blih_fill_sshkey() {
+	if [[ -n "$BLIH_USER" && -n "$BLIH_TOKEN" ]] ; then
+		local tmp=$(blih sshkey list)
+		if [ "$?" -eq "0" ]; then
+			cut -d ' ' -f 3 <<< $tmp
+		fi
+	fi
+}
+
+_blih_sshkey_delete() {
+	__blih_get_next_command
+	if [ "$?" -eq "1" ];then
+		local keys=$(__blih_fill_sshkey)
+		COMPREPLY=( $( compgen -W '${keys}' -- $cur ) )
+	fi
+}
+
 _blih_sshkey() {
 	local commands=(
 		upload
