@@ -131,7 +131,9 @@ packages_list=(boost-devel.x86_64
 	       php-phar-io-version.noarch
 	       php-theseer-tokenizer.noarch
 	       SFML
-	       SFML-devel)
+	       SFML-devel
+	       irrlicht.x86_64
+	       irrlicht-devel.x86_64)
 
 dnf -y install ${packages_list[@]}
 
