@@ -10,6 +10,12 @@ _blih_sshkey() {
 	__blih_arg "_blih_sshkey"
 }
 
+_blih_sshkey_upload() {
+	if [ "$COMP_CWORD" -eq "3" ]; then
+		_filedir
+	fi
+}
+
 _blih_repository() {
 	local commands=(
 		create
