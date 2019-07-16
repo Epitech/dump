@@ -10,6 +10,7 @@ echo "Press ENTER to continue..."
 read
 
 packages_list=(boost-devel.x86_64
+	       boost-static.x86_64
 	       ca-certificates.noarch
 	       clang.x86_64
 	       cmake.x86_64
@@ -81,8 +82,8 @@ packages_list=(boost-devel.x86_64
 	       ncurses
 	       ncurses-libs
 	       ncurses-devel
-	       java-1.8.0-openjdk
-	       java-1.8.0-openjdk-devel
+	       java-openjdk
+	       java-openjdk-devel
 	       ocaml
 	       ocaml-SDL
 	       boost
