@@ -159,3 +159,6 @@ git checkout 431df95085337217bbc834e28cc0f09e11b2caf3
 cd .. && rm -rf epitech-emacs
 
 install -m 644 bash_completion.d/blih /usr/share/bash-completion/completions
+
+# INSTALL ON PIP
+pip3 install --upgrade pip && pip3 install -Iv gcovr==4.1 conan==1.15.1 pycrypto==2.6.1 requests==2.22.0 pyte==0.8.0
