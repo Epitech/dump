@@ -141,7 +141,7 @@ dnf -y install ${packages_list[@]}
 # PHP Runkit
 git clone https://github.com/runkit7/runkit7.git
 cd runkit7
-git checkout 7ddbbb0d4784751a55eac0f4f425fbc2e1d249f6
+git checkout 84e5b5e04af239c9d79b09be1b1dc0d0ac23b477
 phpize && ./configure && make && make install
 cd .. && rm -rf runkit7
 
