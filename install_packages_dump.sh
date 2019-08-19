@@ -6,7 +6,8 @@ if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
-if [[ "$FBR" != "f30" ]]; then
+cat /etc/fedora-release | grep "Fedora release 30"
+if [[ $? -ne 0 ]]; then
     echo "This script must be run onto a Fedora 30";
     exit 1
 fi
