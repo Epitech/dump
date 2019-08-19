@@ -162,9 +162,9 @@ cp blih.py /usr/bin/blih
 ./build_csfml.sh
 
 # CONFIG EMACS
-git clone https://gitlab.com/EpitechContent/epitech-emacs.git
+git clone https://github.com/Epitech/epitech-emacs.git
 cd epitech-emacs
-git checkout 431df95085337217bbc834e28cc0f09e11b2caf3
+git checkout 01773da1cb9b1399855b765c1f0dd059a0518c12
 ./INSTALL.sh system
 cd .. && rm -rf epitech-emacs
 
