@@ -6,7 +6,7 @@
 
 ## Fedora 30 Installation
 
-[Installation](https://docs.fedoraproject.org/en-US/fedora/f30/install-guide/install/Preparing_for_Installation/index.html) of [Fedora 28 with the XFCE Desktop](https://archive.fedoraproject.org/pub/fedora/linux/releases/30/Spins/x86_64/iso/)
+[Installation](https://docs.fedoraproject.org/en-US/fedora/f30/install-guide/install/Preparing_for_Installation/index.html) of [Fedora 30 with the XFCE Desktop](https://archive.fedoraproject.org/pub/fedora/linux/releases/30/Spins/x86_64/iso/)
 
 ## Installing dump scripts
 
