@@ -9,6 +9,8 @@ fi
 echo "Press ENTER to continue..."
 read
 
+dnf -y install dnf-plugins-core && dnf -y copr enable petersen/stack2
+
 packages_list=(boost-devel.x86_64
 	       boost-static.x86_64
 	       ca-certificates.noarch
@@ -134,7 +136,11 @@ packages_list=(boost-devel.x86_64
 	       SFML
 	       SFML-devel
 	       irrlicht.x86_64
-	       irrlicht-devel.x86_64)
+	       irrlicht-devel.x86_64
+	       stack
+	       ghc
+	       rust
+	       cargo)
 
 dnf -y install ${packages_list[@]}
 
