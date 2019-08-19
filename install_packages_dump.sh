@@ -105,7 +105,6 @@ packages_list=(boost-devel.x86_64
 	       vim
 	       tcpdump
 	       wireshark
-	       wireshark-gtk
 	       nodejs
 	       python2-virtualenv-api
 	       python3-virtualenv-api
