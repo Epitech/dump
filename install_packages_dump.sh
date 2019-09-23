@@ -14,7 +14,7 @@ fi
 echo "Press ENTER to continue..."
 read
 
-dnf -y install dnf-plugins-core && dnf -y copr enable petersen/stack2
+dnf -y install dnf-plugins-core && dnf -y copr enable petersen/stack2 && dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 packages_list=(boost-devel.x86_64
 	       boost-static.x86_64
@@ -144,16 +144,13 @@ packages_list=(boost-devel.x86_64
 	       stack
 	       ghc
 	       rust
-	       cargo)
+	       cargo
+               x264
+               lightspark
+               lightspark-mozilla-plugin
+               mariadb-server)
 
 dnf -y install ${packages_list[@]}
-
-# PHP Runkit
-git clone https://github.com/runkit7/runkit7.git
-cd runkit7
-git checkout 84e5b5e04af239c9d79b09be1b1dc0d0ac23b477
-phpize && ./configure && make && make install
-cd .. && rm -rf runkit7
 
 # BLIH
 cp blih.py /usr/bin/blih
