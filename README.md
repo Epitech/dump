@@ -4,9 +4,9 @@
 
 [Classic installation](https://www.howtogeek.com/197559/how-to-install-windows-10-on-your-pc/) of a [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10) on the machine, don't forget to leave some room on the hard drive for Fedora (minimum 50 GB recommended)
 
-## Fedora 30 Installation
+## Fedora 32 Installation
 
-[Installation](https://docs.fedoraproject.org/en-US/fedora/f30/install-guide/install/Preparing_for_Installation/index.html) of [Fedora 30 with the XFCE Desktop](https://archive.fedoraproject.org/pub/fedora/linux/releases/30/Spins/x86_64/iso/)
+[Installation](https://docs.fedoraproject.org/en-US/fedora/f32/install-guide/install/Preparing_for_Installation/index.html) of [Fedora 32 with the XFCE Desktop](https://archive.fedoraproject.org/pub/fedora/linux/releases/32/Spins/x86_64/iso/)
 
 ## Installing dump scripts
 
@@ -25,5 +25,3 @@ Yes, after installing Fedora, perform a [classic installation](https://www.howto
 ### After installing Fedora and Windows 10, it starts only on Windows 10, what should you do?
 
 In your BIOS, select the boot order, if a Fedora entry exists, put it first, otherwise the bios will usually suggest creating a custom entry: `\EFI\fedora\grubx64.efi`, don't forget to place this custom entry first in the startup order. This procedure and its necessity depend on the type of computer on which the installation is made.
-
-_Since Windows 10 Falls Creator (October 2017), it seems that Microsoft takes into account (sometimes) the existing grub and does not rewrite it, if you install Windows 10, remember to check the version of the downloaded ISO._

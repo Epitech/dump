@@ -6,15 +6,19 @@ if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
-cat /etc/fedora-release | grep "Fedora release 30"
+cat /etc/fedora-release | grep "Fedora release 32"
 if [[ $? -ne 0 ]]; then
-    echo "This script must be run onto a Fedora 30";
+    echo "This script must be run onto a Fedora 32";
     exit 1
 fi
 echo "Press ENTER to continue..."
 read
 
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sh -c 'echo -e "[teams]\nname=teams\nbaseurl=https://packages.microsoft.com/yumrepos/ms-teams\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/teams.repo'
 dnf -y install dnf-plugins-core && dnf -y copr enable petersen/stack2 && dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+dnf upgrade -y
 
 packages_list=(boost-devel.x86_64
                boost-static.x86_64
@@ -37,16 +41,9 @@ packages_list=(boost-devel.x86_64
                elfutils-libelf-devel.x86_64
                libjpeg-turbo-devel.x86_64
                libvorbis-devel.x86_64
-               SDL-devel.x86_64
-               SDL-static.x86_64
+               SDL2.x86_64
                SDL2-static.x86_64
                SDL2-devel.x86_64
-               SDL2_ttf.x86_64
-               SDL2_ttf-devel.x86_64
-               SDL2_image.x86_64
-               SDL2_image-devel.x86_64
-               libcaca.x86_64
-               libcaca-devel.x86_64
                libX11-devel.x86_64
                libXext-devel.x86_64
                ltrace.x86_64
@@ -54,13 +51,10 @@ packages_list=(boost-devel.x86_64
                nasm.x86_64
                ncurses.x86_64
                ncurses-devel.x86_64
+               ncurses-libs.x86_64
                net-tools.x86_64
-               ocaml.x86_64
-               ocaml-camlp4.x86_64
                openal-soft-devel.x86_64
-               python3-curses_ex.x86_64
                python3-numpy.x86_64
-               python2-numpy.x86_64
                python3.x86_64
                rlwrap.x86_64
                ruby.x86_64
@@ -82,37 +76,20 @@ packages_list=(boost-devel.x86_64
                avr-gcc.x86_64
                avr-gdb.x86_64
                qt-devel
-               SDL2
-               SDL2-devel
                docker
                docker-compose
-               ncurses
-               ncurses-libs
-               ncurses-devel
-               java-openjdk
-               java-openjdk-devel
-               ocaml
-               ocaml-SDL
+               java-latest-openjdk
+               java-latest-openjdk-devel
                boost
                boost-math
                boost-graph
-               umbrello
-               valgrind
-               net-tools
                autoconf
                automake
-               ruby
-               vim
                tcpdump
                wireshark
                nodejs
-               python2-virtualenv-api
                python3-virtualenv-api
-               python2-virtualenv
                python3-virtualenv
-               ocaml-SDL
-               ocaml-SDL-devel
-               qemu
                emacs-tuareg
                libvirt
                libvirt-devel
@@ -125,30 +102,27 @@ packages_list=(boost-devel.x86_64
                php-devel.x86_64
                php-bcmath.x86_64
                php-cli.x86_64
-               php-devel.x86_64
                php-gd.x86_64
                php-mbstring.x86_64
                php-mysqlnd.x86_64
                php-pdo.x86_64
                php-pear.noarch
                php-json.x86_64
-               php-pdo.x86_64
                php-xml.x86_64
                php-gettext-gettext.noarch
                php-phar-io-version.noarch
                php-theseer-tokenizer.noarch
-               SFML
-               SFML-devel
+               SFML.x86_64
+               SFML-devel.x86_64
                irrlicht.x86_64
                irrlicht-devel.x86_64
-               stack
-               ghc
-               rust
-               cargo
-               x264
-               lightspark
-               lightspark-mozilla-plugin
-               mariadb-server)
+               rust.x86_64
+               cargo.x86_64
+               mariadb-server.x86_64
+               x264.x86_64
+               lightspark.x86_64
+               lightspark-mozilla-plugin.x86_64
+               teams.x86_64)
 
 dnf -y install ${packages_list[@]}
 
