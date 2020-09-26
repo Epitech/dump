@@ -132,6 +132,9 @@ cp blih.py /usr/bin/blih
 # Criterion
 rpm -ivh https://github.com/samber/criterion-rpm-package/releases/download/2.3.3/libcriterion-devel-2.3.3-2.el7.x86_64.rpm
 
+# Gradle
+wget https://downloads.gradle-dn.com/distributions/gradle-6.6.1-bin.zip && mkdir /opt/gradle && unzip -d /opt/gradle gradle-6.6.1-bin.zip && rm -f gradle-6.6.1-bin.zip \
+
 # CSFML
 ./build_csfml.sh
 
