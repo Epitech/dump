@@ -135,6 +135,9 @@ rpm -ivh https://github.com/samber/criterion-rpm-package/releases/download/2.3.3
 # Gradle
 wget https://downloads.gradle-dn.com/distributions/gradle-6.6.1-bin.zip && mkdir /opt/gradle && unzip -d /opt/gradle gradle-6.6.1-bin.zip && rm -f gradle-6.6.1-bin.zip \
 
+# Stack
+curl -sSL https://get.haskellstack.org/ | sh
+
 # CSFML
 ./build_csfml.sh
 
