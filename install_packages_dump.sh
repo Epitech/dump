@@ -129,6 +129,9 @@ dnf -y install ${packages_list[@]}
 # BLIH
 cp blih.py /usr/bin/blih
 
+# Criterion
+rpm -ivh https://github.com/samber/criterion-rpm-package/releases/download/2.3.3/libcriterion-devel-2.3.3-2.el7.x86_64.rpm
+
 # CSFML
 ./build_csfml.sh
 
