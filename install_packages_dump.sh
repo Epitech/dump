@@ -78,8 +78,8 @@ packages_list=(boost-devel.x86_64
                qt-devel
                docker
                docker-compose
-               java-latest-openjdk
-               java-latest-openjdk-devel
+               java-11-openjdk
+               java-11-openjdk-devel
                boost
                boost-math
                boost-graph
@@ -125,6 +125,7 @@ packages_list=(boost-devel.x86_64
                teams.x86_64)
 
 dnf -y install ${packages_list[@]}
+dnf -y remove java-8-openjdk java-8-openjdk-devel java-8-openjdk-headless
 
 # BLIH
 cp blih.py /usr/bin/blih
