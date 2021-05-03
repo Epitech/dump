@@ -6,9 +6,9 @@ if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
-cat /etc/fedora-release | grep "Fedora release 32"
+cat /etc/fedora-release | grep "Fedora release 34"
 if [[ $? -ne 0 ]]; then
-    echo "This script must be run onto a Fedora 32";
+    echo "This script must be run onto a Fedora 34";
     exit 1
 fi
 echo "Press ENTER to continue..."
@@ -74,7 +74,6 @@ packages_list=(boost-devel.x86_64
                zip.x86_64
                zsh.x86_64
                avr-gcc.x86_64
-               avr-gdb.x86_64
                qt-devel
                docker
                docker-compose
@@ -125,16 +124,12 @@ packages_list=(boost-devel.x86_64
                teams.x86_64)
 
 dnf -y install ${packages_list[@]}
-dnf -y remove java-8-openjdk java-8-openjdk-devel java-8-openjdk-headless
-
-# BLIH
-cp blih.py /usr/bin/blih
 
 # Criterion
 rpm -ivh https://github.com/samber/criterion-rpm-package/releases/download/2.3.3/libcriterion-devel-2.3.3-2.el7.x86_64.rpm
 
 # Gradle
-wget https://downloads.gradle-dn.com/distributions/gradle-6.6.1-bin.zip && mkdir /opt/gradle && unzip -d /opt/gradle gradle-6.6.1-bin.zip && rm -f gradle-6.6.1-bin.zip \
+wget https://services.gradle.org/distributions/gradle-7.0-bin.zip && mkdir /opt/gradle && unzip -d /opt/gradle gradle-7.0-bin.zip && rm -f gradle-7.0-bin.zip
 
 # Stack
 curl -sSL https://get.haskellstack.org/ | sh
@@ -148,5 +143,3 @@ cd epitech-emacs
 git checkout 278bb6a630e6474f99028a8ee1a5c763e943d9a3
 ./INSTALL.sh system
 cd .. && rm -rf epitech-emacs
-
-install -m 644 bash_completion.d/blih /usr/share/bash-completion/completions
