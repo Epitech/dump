@@ -1,50 +1,36 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -e
 
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
 
-SFML_SOURCE_URL="http://www.sfml-dev.org/files/SFML-2.5.1-sources.zip"
 CSFML_SOURCE_URL="http://www.sfml-dev.org/files/CSFML-2.5-sources.zip"
 
-CSFML_ZIP="CSFML.zip"
-SFML_ZIP="SFML.zip"
+CSFML_ZIP="/tmp/CSFML.zip"
+CSFML_DIR="/tmp/CSFML-2.5"
 
-echo "Download SFML Sources"
-curl -Lo "$SFML_ZIP" $SFML_SOURCE_URL
-echo "Download CSFML Sources"
+echo "Download CSFML Sources to $CSFML_ZIP"
 curl -Lo "$CSFML_ZIP" $CSFML_SOURCE_URL
 
-echo "Unzip SFML"
-unzip -qq -o $SFML_ZIP
-echo "Unzip CSFML"
-unzip -qq -o $CSFML_ZIP
-
-mv SFML-* SFML
-mv CSFML-* CSFML
-
-SFML_PATH="$(realpath SFML)"
-CSFML_PATH="$(realpath CSFML)"
-
-echo "SFML Compilation"
-cd SFML
-cmake .
-make
-cd ..
+echo "Unzip CSFML to $CSFML_DIR"
+unzip -qq -o $CSFML_ZIP -d /tmp
 
 echo "CSFML Compilation"
-cd CSFML
-cmake -DSFML_ROOT="$SFML_PATH" -DSFML_INCLUDE_DIR="$SFML_PATH/include" -DCMAKE_MODULE_PATH="$SFML_PATH/cmake/Modules" .
-LD_LIBRARY_PATH="$SFML_PATH/lib"
+cd $CSFML_DIR
+cmake .
 make
-make install
-cd ..
 
+echo "CSFML Installation"
+make install
+
+echo "ld.so configuration"
 echo "/usr/local/lib/" > /etc/ld.so.conf.d/csfml.conf
 
 # Update the Dynamic Linker Run Time Bindings
 ldconfig
 
 # Clean
-rm -rf "$CSFML_ZIP" "$CSFML_PATH" "$SFML_ZIP" "$SFML_PATH"
+rm -rf "$CSFML_ZIP" "$CSFML_PATH"
