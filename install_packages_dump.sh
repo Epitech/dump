@@ -126,22 +126,22 @@ packages_list=(boost-devel.x86_64
 dnf -y install ${packages_list[@]}
 
 # Criterion
-curl -sSL "https://github.com/Snaipe/Criterion/releases/download/v2.4.0/criterion-2.4.0-linux-x86_64.tar.xz" -o criterion-2.4.0.tar.xz \
-    && tar xf criterion-2.4.0.tar.xz \
-    && cp -r criterion-2.4.0/* /usr/local/ \
-    && echo "/usr/local/lib" > /etc/ld.so.conf.d/usr-local.conf \
-    && ldconfig
-    && rm -rf criterion-2.4.0.tar.xz criterion-2.4.0/
+curl -sSL "https://github.com/Snaipe/Criterion/releases/download/v2.4.0/criterion-2.4.0-linux-x86_64.tar.xz" -o criterion-2.4.0.tar.xz
+tar xf criterion-2.4.0.tar.xz
+cp -r criterion-2.4.0/* /usr/local/
+echo "/usr/local/lib" > /etc/ld.so.conf.d/usr-local.conf
+ldconfig
+rm -rf criterion-2.4.0.tar.xz criterion-2.4.0/
 
 # Sbt
-curl -sSL "https://github.com/sbt/sbt/releases/download/v1.3.13/sbt-1.3.13.tgz" | tar xz \
-    && mv sbt /usr/local/share \
-    && ln -s '/usr/local/share/sbt/bin/sbt' '/usr/local/bin'
+curl -sSL "https://github.com/sbt/sbt/releases/download/v1.3.13/sbt-1.3.13.tgz" | tar xz
+mv sbt /usr/local/share
+ln -s '/usr/local/share/sbt/bin/sbt' '/usr/local/bin'
 
 # Gradle
-wget https://services.gradle.org/distributions/gradle-7.2-bin.zip \
-    && mkdir /opt/gradle && unzip -d /opt/gradle gradle-7.2-bin.zip && rm -f gradle-7.2-bin.zip \
-    && echo 'export PATH=$PATH:/opt/gradle/gradle-7.2/bin' >> /etc/profile
+wget https://services.gradle.org/distributions/gradle-7.2-bin.zip
+mkdir /opt/gradle && unzip -d /opt/gradle gradle-7.2-bin.zip && rm -f gradle-7.2-bin.zip
+echo 'export PATH=$PATH:/opt/gradle/gradle-7.2/bin' >> /etc/profile
 
 # Stack
 curl -sSL https://get.haskellstack.org/ | sh
