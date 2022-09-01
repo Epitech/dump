@@ -77,8 +77,8 @@ packages_list=(boost-devel.x86_64
                qt-devel
                docker
                docker-compose
-               java-11-openjdk
-               java-11-openjdk-devel
+               java-17-openjdk
+               java-17-openjdk-devel
                boost
                boost-math
                boost-graph
@@ -87,8 +87,6 @@ packages_list=(boost-devel.x86_64
                tcpdump
                wireshark
                nodejs
-               python3-virtualenv-api
-               python3-virtualenv
                emacs-tuareg
                libvirt
                libvirt-devel
@@ -106,13 +104,14 @@ packages_list=(boost-devel.x86_64
                php-mysqlnd.x86_64
                php-pdo.x86_64
                php-pear.noarch
-               php-json.x86_64
                php-xml.x86_64
                php-gettext-gettext.noarch
                php-phar-io-version.noarch
                php-theseer-tokenizer.noarch
                SFML.x86_64
                SFML-devel.x86_64
+               CSFML.x86_64
+               CSFML-devel.x86_64
                irrlicht.x86_64
                irrlicht-devel.x86_64
                rust.x86_64
@@ -145,9 +144,6 @@ echo 'export PATH=$PATH:/opt/gradle/gradle-7.2/bin' >> /etc/profile
 
 # Stack
 curl -sSL https://get.haskellstack.org/ | sh
-
-# CSFML
-./build_csfml.sh
 
 # CONFIG EMACS
 git clone https://github.com/Epitech/epitech-emacs.git
