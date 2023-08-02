@@ -6,7 +6,7 @@
 
 ## Fedora 38 Installation
 
-[Installation](https://docs.fedoraproject.org/en-US/fedora/latest/getting-started/) of [Fedora 36 with selected Desktop](https://fedoraproject.org/spins/)
+[Installation](https://docs.fedoraproject.org/en-US/fedora/latest/getting-started/) of [Fedora 38 with selected Desktop](https://fedoraproject.org/spins/)
 
 ## Installing dump scripts
 
