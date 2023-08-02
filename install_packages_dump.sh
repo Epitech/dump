@@ -6,9 +6,9 @@ if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
-cat /etc/fedora-release | grep "Fedora release 34"
+cat /etc/fedora-release | grep "Fedora release 38"
 if [[ $? -ne 0 ]]; then
-    echo "This script must be run onto a Fedora 34";
+    echo "This script must be run onto a Fedora 38";
     exit 1
 fi
 echo "Press ENTER to continue..."
@@ -125,22 +125,22 @@ packages_list=(boost-devel.x86_64
 dnf -y install ${packages_list[@]}
 
 # Criterion
-curl -sSL "https://github.com/Snaipe/Criterion/releases/download/v2.4.0/criterion-2.4.0-linux-x86_64.tar.xz" -o criterion-2.4.0.tar.xz
-tar xf criterion-2.4.0.tar.xz
-cp -r criterion-2.4.0/* /usr/local/
+curl -sSL "https://github.com/Snaipe/Criterion/releases/download/v2.4.2/criterion-2.4.2-linux-x86_64.tar.xz" -o criterion-2.4.2.tar.xz
+tar xf criterion-2.4.2.tar.xz
+cp -r criterion-2.4.2/* /usr/local/
 echo "/usr/local/lib" > /etc/ld.so.conf.d/usr-local.conf
 ldconfig
-rm -rf criterion-2.4.0.tar.xz criterion-2.4.0/
+rm -rf criterion-2.4.2.tar.xz criterion-2.4.2/
 
 # Sbt
-curl -sSL "https://github.com/sbt/sbt/releases/download/v1.3.13/sbt-1.3.13.tgz" | tar xz
+curl -sSL "https://github.com/sbt/sbt/releases/download/v1.9.3/sbt-1.9.3.tgz" | tar xz
 mv sbt /usr/local/share
 ln -s '/usr/local/share/sbt/bin/sbt' '/usr/local/bin'
 
 # Gradle
-wget https://services.gradle.org/distributions/gradle-7.2-bin.zip
-mkdir /opt/gradle && unzip -d /opt/gradle gradle-7.2-bin.zip && rm -f gradle-7.2-bin.zip
-echo 'export PATH=$PATH:/opt/gradle/gradle-7.2/bin' >> /etc/profile
+wget https://services.gradle.org/distributions/gradle-8.2.1-bin.zip
+mkdir /opt/gradle && unzip -d /opt/gradle gradle-8.2.1-bin.zip && rm -f gradle-8.2.1-bin.zip
+echo 'export PATH=$PATH:/opt/gradle/gradle-8.2.1/bin' >> /etc/profile
 
 # Stack
 curl -sSL https://get.haskellstack.org/ | sh
@@ -155,6 +155,5 @@ cd .. && rm -rf epitech-emacs
 # CONFIG VIM
 git clone https://github.com/Epitech/vim-epitech.git
 cd vim-epitech
-git checkout ec936f2a49ca673901d56598e141932fd309ddac
 ./install.sh
 cd .. && rm -rf vim-epitech
