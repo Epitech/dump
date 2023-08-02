@@ -4,9 +4,9 @@
 
 [Classic installation](https://www.howtogeek.com/197559/how-to-install-windows-10-on-your-pc/) of a [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10) on the machine, don't forget to leave some room on the hard drive for Fedora (minimum 50 GB recommended)
 
-## Fedora 36 Installation
+## Fedora 38 Installation
 
-[Installation](https://docs.fedoraproject.org/en-US/fedora/f36/install-guide/install/Preparing_for_Installation/index.html) of [Fedora 36 with selected Desktop](hhttps://archive.fedoraproject.org/pub/fedora/linux/releases/36/Spins/x86_64/iso/)
+[Installation](https://docs.fedoraproject.org/en-US/fedora/latest/getting-started/) of [Fedora 36 with selected Desktop](https://fedoraproject.org/spins/)
 
 ## Installing dump scripts
 
