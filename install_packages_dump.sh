@@ -15,7 +15,6 @@ echo "Press ENTER to continue..."
 read
 
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sh -c 'echo -e "[teams]\nname=teams\nbaseurl=https://packages.microsoft.com/yumrepos/ms-teams\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/teams.repo'
 dnf -y install dnf-plugins-core && dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 dnf upgrade -y
@@ -119,8 +118,7 @@ packages_list=(boost-devel.x86_64
                mariadb-server.x86_64
                x264.x86_64
                lightspark.x86_64
-               lightspark-mozilla-plugin.x86_64
-               teams.x86_64)
+               lightspark-mozilla-plugin.x86_64)
 
 dnf -y install ${packages_list[@]}
 
@@ -143,12 +141,11 @@ mkdir /opt/gradle && unzip -d /opt/gradle gradle-8.2.1-bin.zip && rm -f gradle-8
 echo 'export PATH=$PATH:/opt/gradle/gradle-8.2.1/bin' >> /etc/profile
 
 # Stack
-curl -sSL https://get.haskellstack.org/ | sh
+wget https://raw.githubusercontent.com/commercialhaskell/stack/stable/etc/scripts/get-stack.sh && chmod +x ./get-stack.sh && sudo ./get-stack.sh
 
 # CONFIG EMACS
 git clone https://github.com/Epitech/epitech-emacs.git
 cd epitech-emacs
-git checkout 278bb6a630e6474f99028a8ee1a5c763e943d9a3
 ./INSTALL.sh system
 cd .. && rm -rf epitech-emacs
 
