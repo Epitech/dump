@@ -6,7 +6,7 @@
 
 ## Fedora 38 Installation
 
-[Installation](https://docs.fedoraproject.org/en-US/fedora/f38/install-guide/install/Preparing_for_Installation/index.html) of [Fedora 36 with selected Desktop](https://archive.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso/)
+[Installation](https://docs.fedoraproject.org/en-US/fedora/f38/install-guide/install/Preparing_for_Installation/index.html) of [Fedora 38 with selected Desktop](https://archive.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso/)
 
 ## Installing dump scripts
 
