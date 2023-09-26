@@ -6,17 +6,13 @@ if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
-cat /etc/fedora-release | grep "Fedora release 34"
+cat /etc/fedora-release | grep "Fedora release 38"
 if [[ $? -ne 0 ]]; then
-    echo "This script must be run onto a Fedora 34";
+    echo "This script must be run onto a Fedora 38";
     exit 1
 fi
 echo "Press ENTER to continue..."
 read
-
-rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sh -c 'echo -e "[teams]\nname=teams\nbaseurl=https://packages.microsoft.com/yumrepos/ms-teams\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/teams.repo'
-dnf -y install dnf-plugins-core && dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 dnf upgrade -y
 
@@ -125,17 +121,12 @@ packages_list=(boost-devel.x86_64
 dnf -y install ${packages_list[@]}
 
 # Criterion
-curl -sSL "https://github.com/Snaipe/Criterion/releases/download/v2.4.0/criterion-2.4.0-linux-x86_64.tar.xz" -o criterion-2.4.0.tar.xz
-tar xf criterion-2.4.0.tar.xz
-cp -r criterion-2.4.0/* /usr/local/
+curl -sSL "https://github.com/Snaipe/Criterion/releases/download/v2.4.2/criterion-2.4.2-linux-x86_64.tar.xz" -o criterion-2.4.2.tar.xz
+tar xf criterion-2.4.2.tar.xz
+cp -r criterion-2.4.2/* /usr/local/
 echo "/usr/local/lib" > /etc/ld.so.conf.d/usr-local.conf
 ldconfig
-rm -rf criterion-2.4.0.tar.xz criterion-2.4.0/
-
-# Sbt
-curl -sSL "https://github.com/sbt/sbt/releases/download/v1.3.13/sbt-1.3.13.tgz" | tar xz
-mv sbt /usr/local/share
-ln -s '/usr/local/share/sbt/bin/sbt' '/usr/local/bin'
+rm -rf criterion-2.4.2.tar.xz criterion-2.4.2/
 
 # Gradle
 wget https://services.gradle.org/distributions/gradle-7.2-bin.zip
