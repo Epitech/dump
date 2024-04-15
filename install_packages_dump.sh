@@ -33,7 +33,6 @@ packages_list=(boost-devel.x86_64
                glibc-devel.x86_64
                glibc-locale-source.x86_64
                gmp-devel.x86_64
-               golang
                ksh.x86_64
                elfutils-libelf-devel.x86_64
                libjpeg-turbo-devel.x86_64
