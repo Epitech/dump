@@ -6,9 +6,9 @@ if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
-cat /etc/fedora-release | grep "Fedora release 38"
+cat /etc/fedora-release | grep "Fedora release 39"
 if [[ $? -ne 0 ]]; then
-    echo "This script must be run onto a Fedora 38";
+    echo "This script must be run onto a Fedora 39";
     exit 1
 fi
 echo "Press ENTER to continue..."
