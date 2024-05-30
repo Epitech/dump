@@ -146,6 +146,6 @@ cd .. && rm -rf epitech-emacs
 # CONFIG VIM
 git clone https://github.com/Epitech/vim-epitech.git
 cd vim-epitech
-git checkout ec936f2a49ca673901d56598e141932fd309ddac
-./install.sh
+git checkout b97cab4bd988dc2a8432664dd43b4656d9931ce3
+./install.sh system
 cd .. && rm -rf vim-epitech
