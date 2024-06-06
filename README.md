@@ -1,27 +1,28 @@
 # Installation procedure
 
-## Windows 10 Installation
+## Windows 11 installation
 
-[Classic installation](https://www.howtogeek.com/197559/how-to-install-windows-10-on-your-pc/) of a [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10) on the machine, don't forget to leave some room on the hard drive for Fedora (minimum 50 GB recommended)
+Do a [Classic Installation](https://www.tomshardware.com/how-to/clean-install-windows-11) of a [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11) on the machine, don't forget to leave some space on the hard drive for Ubuntu (at least 50 GB recommended).
 
-## Fedora 38 Installation
+## Ubuntu 23.10 | 24.04 Installation
 
-[Installation](https://docs.fedoraproject.org/en-US/fedora/f38/install-guide/install/Preparing_for_Installation/index.html) of [Fedora 38 with selected Desktop](https://archive.fedoraproject.org/pub/fedora/linux/releases/38/Spins/x86_64/iso/)
+[Ubuntu 24.04](https://releases.ubuntu.com/noble/)
+[Ubuntu 23.10](https://releases.ubuntu.com/mantic/)
 
-## Installing dump scripts
+## Install dump scripts
 
-Download [installation scripts](https://github.com/Epitech/dump) to `/tmp`
+Download [installation scripts](https://github.com/Epitech/dump) to `/tmp`.
 
-Go to `/tmp` (cd) and `chmod +x install_packages_dump.sh`
+Go to `/tmp` (cd) and `chmod +x install_packages_dump.sh`.
 
-Launch `./install_packages_dump.sh` as root user or else `sudo /tmp/install_packages_dump.sh`
+Run `./install_packages_dump.sh` as root or `sudo /tmp/install_packages_dump.sh`.
 
 # FAQ
 
-### Can I install Fedora first?
+### Can I install Ubuntu first?
 
-Yes, after installing Fedora, perform a [classic installation](https://www.howtogeek.com/197559/how-to-install-windows-10-on-your-pc/) of a [Windows 10 ISO](https://www.microsoft.com/en-us/software-download/windows10) on the machine, make sure that it uses the remaining space and does not delete the Fedora partitions (otherwise, try again).
+Yes, after installing Ubuntu, install Windows on the machine, making sure it uses the remaining space and does not delete the Ubuntu partitions (otherwise try again).
 
-### After installing Fedora and Windows 10, it starts only on Windows 10, what should you do?
+### After installing Ubuntu and Windows 11, it only boots into Windows 11, what should I do?
 
-In your BIOS, select the boot order, if a Fedora entry exists, put it first, otherwise the bios will usually suggest creating a custom entry: `\EFI\fedora\grubx64.efi`, don't forget to place this custom entry first in the startup order. This procedure and its necessity depend on the type of computer on which the installation is made.
+[Changing the boot order](https://askubuntu.com/a/1394945)
