@@ -1,124 +1,217 @@
 #!/usr/bin/env bash
 
 clear
+
+forceflag=false
+
+while getopts 'f' flag; do
+  case "${flag}" in
+    f) forceflag=true ;;
+    *) error "Invalid option ${flag}" ;;
+  esac
+done
+
+
 echo "INSTALLING PACKAGES FOR EPITECH'S DUMP"
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
-cat /etc/fedora-release | grep "Fedora release 38"
+
+cat /etc/issue | ( grep "Ubuntu 23.10\|Ubuntu 24.04" )
 if [[ $? -ne 0 ]]; then
-    echo "This script must be run onto a Fedora 38";
+    echo "This script must be run onto an Ubuntu 23.10 or 24.04";
     exit 1
 fi
-echo "Press ENTER to continue..."
-read
+if [[ $forceflag == false ]]; then
+    echo "Press ENTER to continue..."
+    read
+fi
 
-dnf upgrade -y
+add-apt-repository -y -s universe
+apt update
+apt upgrade -y
 
-packages_list=(boost-devel.x86_64
-               boost-static.x86_64
-               ca-certificates.noarch
-               clang.x86_64
-               cmake.x86_64
-               CUnit-devel.x86_64
-               curl.x86_64
-               flac-devel.x86_64
-               freetype-devel.x86_64
-               gcc.x86_64
-               gcc-c++.x86_64
-               gdb.x86_64
-               git
-               glibc.x86_64
-               glibc-devel.x86_64
-               glibc-locale-source.x86_64
-               gmp-devel.x86_64
-               ksh.x86_64
-               elfutils-libelf-devel.x86_64
-               libjpeg-turbo-devel.x86_64
-               libvorbis-devel.x86_64
-               SDL2.x86_64
-               SDL2-static.x86_64
-               SDL2-devel.x86_64
-               libX11-devel.x86_64
-               libXext-devel.x86_64
-               ltrace.x86_64
-               make.x86_64
-               nasm.x86_64
-               ncurses.x86_64
-               ncurses-devel.x86_64
-               ncurses-libs.x86_64
-               net-tools.x86_64
-               openal-soft-devel.x86_64
-               python3-numpy.x86_64
-               python3.x86_64
-               rlwrap.x86_64
-               ruby.x86_64
-               strace.x86_64
-               tar.x86_64
-               tcsh.x86_64
-               tmux.x86_64
-               sudo.x86_64
-               tree.x86_64
-               unzip.x86_64
-               valgrind.x86_64
-               vim
-               emacs-nox
-               which.x86_64
-               xcb-util-image.x86_64
-               xcb-util-image-devel.x86_64
-               zip.x86_64
-               zsh.x86_64
-               avr-gcc.x86_64
-               qt-devel
-               docker
-               docker-compose
-               java-17-openjdk
-               java-17-openjdk-devel
-               boost
-               boost-math
-               boost-graph
-               autoconf
-               automake
-               tcpdump
-               wireshark
-               nodejs
-               emacs-tuareg
-               libvirt
-               libvirt-devel
-               virt-install
-               haskell-platform
-               golang
-               systemd-devel
-               libgudev-devel
-               php.x86_64
-               php-devel.x86_64
-               php-bcmath.x86_64
-               php-cli.x86_64
-               php-gd.x86_64
-               php-mbstring.x86_64
-               php-mysqlnd.x86_64
-               php-pdo.x86_64
-               php-pear.noarch
-               php-xml.x86_64
-               php-gettext-gettext.noarch
-               php-phar-io-version.noarch
-               php-theseer-tokenizer.noarch
-               SFML.x86_64
-               SFML-devel.x86_64
-               CSFML.x86_64
-               CSFML-devel.x86_64
-               irrlicht.x86_64
-               irrlicht-devel.x86_64
-               rust.x86_64
-               cargo.x86_64
-               mariadb-server.x86_64
-               x264.x86_64
-               lightspark.x86_64
-               lightspark-mozilla-plugin.x86_64
-               teams.x86_64)
+echo "wireshark-common wireshark-common/install-setuid boolean true" | debconf-set-selections
 
-dnf -y install ${packages_list[@]}
+packages_list=(
+    autoconf
+    automake
+    avr-libc
+    ca-certificates
+    ca-certificates-java
+    cabal-install
+    cargo
+    clang
+    clang-tools
+    cmake
+    cpp
+    cpp-doc
+    curl
+    diffutils
+    docker-compose
+    docker.io
+    elfutils
+    elpa-tuareg
+    emacs-nox
+    ffmpeg
+    flac
+    g++
+    gcc
+    gcc-doc
+    gcovr
+    gdb
+    ghc
+    git
+    glibc-doc
+    golang
+    haskell-stack
+    ksh
+    lib32ncurses-dev
+    lib32ncurses6
+    lib32ncursesw6
+    lib32tinfo6
+    liballegro5-dev
+    libasan8
+    libboost1.74-all-dev
+    libc-bin
+    libc-dev-bin
+    libc-devtools
+    libc6
+    libc6-dbg
+    libc6-dev
+    libc6-dev-i386
+    libc6-dev-x32
+    libc6-i386
+    libc6-prof
+    libc6-x32
+    libcsfml-audio2.5
+    libcsfml-dev
+    libcsfml-doc
+    libcsfml-graphics2.5
+    libcsfml-network2.5
+    libcsfml-system2.5
+    libcsfml-window2.5
+    libcunit1
+    libcunit1-dev
+    libelf-dev
+    libelf1
+    libfreetype-dev
+    libgmp-dev
+    libgmp10
+    libgmp10-doc
+    libgmp3-dev
+    libgmpxx4ldbl
+    libgudev-1.0-dev
+    libirrlicht-dev
+    libirrlicht1.8
+    libjpeg-turbo8
+    libjpeg-turbo8-dev
+    libncurses-dev
+    libopenal-data
+    libopenal-dev
+    libopenal1
+    libsdl2-dev
+    libsfml-audio2.5
+    libsfml-dev
+    libsfml-doc
+    libsfml-graphics2.5
+    libsfml-network2.5
+    libsfml-system2.5
+    libsfml-window2.5
+    libtsan2
+    libubsan1
+    libuuid1
+    libvirt-dev
+    libvorbis-dev
+    libvorbis0a
+    libvorbisenc2
+    libvorbisfile3
+    libx11-6
+    libx11-data
+    libx11-dev
+    libx11-doc
+    libx11-xcb-dev
+    libx11-xcb1
+    libxcb-image0
+    libxcb-image0-dev
+    libxcb-util-dev
+    libxcb-util0-dev
+    libxcb-util1
+    libxcursor-dev
+    libxext-dev
+    libxext-doc
+    libxext6
+    libxi-dev
+    libxinerama-dev
+    libxrandr-dev
+    locales
+    ltrace
+    make
+    mariadb-server
+    nasm
+    ncurses-base
+    netcat-openbsd
+    net-tools
+    npm
+    nodejs
+    openjdk-21-jdk
+    openjdk-21-jre
+    php
+    php-bcmath
+    php-cli
+    php-common
+    php-dev
+    php-gd
+    php-mbstring
+    php-mysql
+    php-pear
+    php-phar-io-version
+    php-php-gettext 
+    php-tokenizer
+    php-xml
+    python3
+    python3-pycryptodome
+    python3-dev
+    python3-numpy
+    python3-pip
+    python3-pyte
+    python3-requests
+    python3-yaml
+    qt6-base-dev
+    qt6-base-dev-tools
+    rlwrap
+    ruby
+    rustc
+    strace
+    sudo
+    systemd-dev
+    tar
+    tcpdump
+    tcsh
+    tmux
+    tree
+    unzip
+    uuid-dev
+    valgrind
+    vim
+    virt-manager
+    wireshark
+    x264
+    zip
+    zsh
+)
+
+export DEBIAN_FRONTEND=noninteractive
+apt -y install ${packages_list[@]}
+
+## Microsoft teams
+
+snap install teams-for-linux
+
+## Bun
+
+npm install -g bun
 
 # Criterion
 curl -sSL "https://github.com/Snaipe/Criterion/releases/download/v2.4.2/criterion-2.4.2-linux-x86_64.tar.xz" -o criterion-2.4.2.tar.xz
@@ -129,12 +222,11 @@ ldconfig
 rm -rf criterion-2.4.2.tar.xz criterion-2.4.2/
 
 # Gradle
-wget https://services.gradle.org/distributions/gradle-7.2-bin.zip
-mkdir /opt/gradle && unzip -d /opt/gradle gradle-7.2-bin.zip && rm -f gradle-7.2-bin.zip
-echo 'export PATH=$PATH:/opt/gradle/gradle-7.2/bin' >> /etc/profile
-
-# Stack
-curl -sSL https://get.haskellstack.org/ | sh
+if [[ ! -d "/opt/gradle/gradle-8.7" ]]; then
+    wget https://services.gradle.org/distributions/gradle-8.7-bin.zip
+    mkdir /opt/gradle && unzip -d /opt/gradle gradle-8.7-bin.zip && rm -f gradle-8.7-bin.zip
+    echo 'export PATH=$PATH:/opt/gradle/gradle-8.7/bin' >> /etc/profile
+fi
 
 # CONFIG EMACS
 git clone https://github.com/Epitech/epitech-emacs.git
