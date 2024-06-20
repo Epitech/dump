@@ -35,9 +35,8 @@ apt upgrade -y
 echo "wireshark-common wireshark-common/install-setuid boolean true" | debconf-set-selections
 
 packages_list=(
-    autoconf
-    automake
     avr-libc
+    build-essential
     ca-certificates
     ca-certificates-java
     cabal-install
@@ -45,8 +44,6 @@ packages_list=(
     clang
     clang-tools
     cmake
-    cpp
-    cpp-doc
     curl
     diffutils
     docker-compose
@@ -56,14 +53,8 @@ packages_list=(
     emacs-nox
     ffmpeg
     flac
-    g++
-    gcc
-    gcc-doc
     gcovr
-    gdb
     ghc
-    git
-    glibc-doc
     golang
     haskell-stack
     ksh
@@ -72,14 +63,12 @@ packages_list=(
     lib32ncursesw6
     lib32tinfo6
     liballegro5-dev
-    libasan8
     libboost1.74-all-dev
     libc-bin
     libc-dev-bin
     libc-devtools
     libc6
     libc6-dbg
-    libc6-dev
     libc6-dev-i386
     libc6-dev-x32
     libc6-i386
@@ -105,7 +94,6 @@ packages_list=(
     libgudev-1.0-dev
     libirrlicht-dev
     libirrlicht1.8
-    libjpeg-turbo8
     libjpeg-turbo8-dev
     libncurses-dev
     libopenal-data
@@ -119,16 +107,12 @@ packages_list=(
     libsfml-network2.5
     libsfml-system2.5
     libsfml-window2.5
-    libtsan2
-    libubsan1
     libuuid1
     libvirt-dev
     libvorbis-dev
     libvorbis0a
     libvorbisenc2
     libvorbisfile3
-    libx11-6
-    libx11-data
     libx11-dev
     libx11-doc
     libx11-xcb-dev
@@ -147,7 +131,6 @@ packages_list=(
     libxrandr-dev
     locales
     ltrace
-    make
     mariadb-server
     nasm
     ncurses-base
