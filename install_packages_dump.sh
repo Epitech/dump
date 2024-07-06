@@ -122,7 +122,6 @@ packages_list=(
     libxcursor-dev
     libxext-dev
     libxext-doc
-    libxext6
     libxi-dev
     libxinerama-dev
     libxrandr-dev
@@ -131,7 +130,6 @@ packages_list=(
     mariadb-server
     nasm
     ncurses-base
-    netcat-openbsd
     net-tools
     npm
     nodejs
