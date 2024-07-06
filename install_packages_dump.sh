@@ -65,8 +65,6 @@ packages_list=(
     libc-devtools
     libc6
     libc6-dbg
-    libc6-dev-i386
-    libc6-i386
     libc6-prof
     libcsfml-audio2.5
     libcsfml-dev
