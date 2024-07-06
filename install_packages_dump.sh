@@ -37,14 +37,12 @@ echo "wireshark-common wireshark-common/install-setuid boolean true" | debconf-s
 packages_list=(
     avr-libc
     build-essential
-    ca-certificates
     ca-certificates-java
     cabal-install
     cargo
     clang
     clang-tools
     cmake
-    curl
     diffutils
     docker-compose
     docker.io
@@ -84,7 +82,6 @@ packages_list=(
     libcunit1
     libcunit1-dev
     libelf-dev
-    libelf1
     libfreetype-dev
     libgmp-dev
     libgmp10
@@ -140,19 +137,14 @@ packages_list=(
     nodejs
     openjdk-21-jdk
     openjdk-21-jre
-    php
     php-bcmath
-    php-cli
-    php-common
     php-dev
     php-gd
     php-mbstring
     php-mysql
-    php-pear
     php-phar-io-version
-    php-php-gettext 
+    php-php-gettext
     php-tokenizer
-    php-xml
     python3
     python3-pycryptodome
     python3-dev
