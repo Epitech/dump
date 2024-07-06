@@ -72,13 +72,7 @@ packages_list=(
     libc6-i386
     libc6-prof
     libc6-x32
-    libcsfml-audio2.5
-    libcsfml-dev
     libcsfml-doc
-    libcsfml-graphics2.5
-    libcsfml-network2.5
-    libcsfml-system2.5
-    libcsfml-window2.5
     libcunit1
     libcunit1-dev
     libelf-dev
@@ -93,27 +87,14 @@ packages_list=(
     libirrlicht1.8
     libjpeg-turbo8-dev
     libncurses-dev
-    libopenal-data
     libopenal-dev
-    libopenal1
     libsdl2-dev
-    libsfml-audio2.5
-    libsfml-dev
     libsfml-doc
-    libsfml-graphics2.5
-    libsfml-network2.5
-    libsfml-system2.5
-    libsfml-window2.5
     libuuid1
     libvirt-dev
     libvorbis-dev
-    libvorbis0a
-    libvorbisenc2
-    libvorbisfile3
-    libx11-dev
     libx11-doc
     libx11-xcb-dev
-    libx11-xcb1
     libxcb-image0
     libxcb-image0-dev
     libxcb-util-dev
