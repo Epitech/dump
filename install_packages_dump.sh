@@ -56,10 +56,6 @@ packages_list=(
     golang
     haskell-stack
     ksh
-    lib32ncurses-dev
-    lib32ncurses6
-    lib32ncursesw6
-    lib32tinfo6
     liballegro5-dev
     libboost1.74-all-dev
     libc-bin
@@ -67,11 +63,8 @@ packages_list=(
     libc-devtools
     libc6
     libc6-dbg
-    libc6-dev-i386
-    libc6-dev-x32
-    libc6-i386
     libc6-prof
-    libc6-x32
+    libcsfml-dev
     libcsfml-doc
     libcunit1
     libcunit1-dev
