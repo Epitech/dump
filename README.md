@@ -1,4 +1,15 @@
-# Installation procedure
+# Classic installation procedure
+
+Dump your pc with tools provided by school (PXE or USB Keys)
+
+Run this command in a root shell :
+
+```sh
+wget -O - "http://dumpscript.epitest.eu" | bash -s
+```
+(a simple web redirect to dump.sh script in this repository)
+
+# Manual Installation procedure
 
 ## Windows 11 installation
 
