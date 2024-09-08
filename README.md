@@ -2,12 +2,18 @@
 
 Dump your pc with tools provided by school (PXE or USB Keys)
 
-Run this command in a root shell :
+Run this command in a root shell (`sudo -i`) :
 
 ```sh
 wget -O - "http://dumpscript.epitest.eu" | bash -s
 ```
 (a simple web redirect to dump.sh script in this repository)
+
+Or as a non-root shell (prompt await for password)
+
+```sh
+wget -O - "http://dumpscript.epitest.eu" | sudo bash -s
+```
 
 # Manual Installation procedure
 
