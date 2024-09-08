@@ -20,8 +20,8 @@ apt install -y netcat-openbsd
 
 # Install proxy detection
 echo '#!/bin/bash
-proxy=192.168.0.1
-nc -zw1 $proxy 9999 && echo http://$proxy:9999/ || echo DIRECT
+proxy=192.168.42.1
+nc -zw1 $proxy 3142 && echo http://$proxy:3142/ || echo DIRECT
 ' > /etc/apt/detect_proxy.sh
 
 chmod +x /etc/apt/detect_proxy.sh
