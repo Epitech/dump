@@ -49,3 +49,7 @@ export DEBIAN_FRONTEND=noninteractive
 apt install -y epitech-dump
 
 apt purge -y postfix
+
+wget https://raw.githubusercontent.com/Epitech/coding-style-checker/main/coding-style.sh -P /tmp/
+chmod +x /tmp/coding-style.sh
+mv /tmp/coding-style.sh /usr/local/bin/coding-style
