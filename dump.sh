@@ -40,5 +40,9 @@ add-apt-repository -y -s universe
 apt update
 
 # Install 
+echo "postfix postfix/mailname string epitech.eu" | debconf-set-selections
+echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections
 export DEBIAN_FRONTEND=noninteractive
 apt install -y epitech-dump
+
+apt purge -y postfix
