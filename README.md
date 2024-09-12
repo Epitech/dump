@@ -15,6 +15,11 @@ Or as a non-root shell (prompt await for password)
 wget -O - "http://dumpscript.epitest.eu" | sudo bash -s
 ```
 
+In the event of a connection to the PXE dump machine, it is possible that no DNS settings will have been configured. In such a scenario, it is recommended to run the following command as a preliminary measure.
+```sh
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+```
+
 # Manual Installation procedure
 
 ## Windows 11 installation
