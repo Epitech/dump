@@ -185,7 +185,7 @@ fi
 # CONFIG EMACS
 git clone https://github.com/Epitech/epitech-emacs.git
 cd epitech-emacs
-git checkout 278bb6a630e6474f99028a8ee1a5c763e943d9a3
+git checkout cd3cfb80c3f9ef039187464be9376b38cd40f375
 ./INSTALL.sh system
 sudo -u "$script_user" ./INSTALL.sh local
 cd .. && rm -rf epitech-emacs
