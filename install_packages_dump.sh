@@ -174,11 +174,20 @@ if [[ ! -d "/opt/gradle/gradle-8.7" ]]; then
     echo 'export PATH=$PATH:/opt/gradle/gradle-8.7/bin' >> /etc/profile
 fi
 
+# Get current user
+if [ -z "${SUDO_USER}" ];
+then
+    script_user="$USER"
+else
+    script_user="$SUDO_USER"
+fi
+
 # CONFIG EMACS
 git clone https://github.com/Epitech/epitech-emacs.git
 cd epitech-emacs
 git checkout 278bb6a630e6474f99028a8ee1a5c763e943d9a3
 ./INSTALL.sh system
+sudo -u "$script_user" ./INSTALL.sh local
 cd .. && rm -rf epitech-emacs
 
 # CONFIG VIM
@@ -186,6 +195,8 @@ git clone https://github.com/Epitech/vim-epitech.git
 cd vim-epitech
 git checkout b97cab4bd988dc2a8432664dd43b4656d9931ce3
 ./install.sh system
+./install.sh local
+./install.sh "$script_user"
 cd .. && rm -rf vim-epitech
 
 # Coding style
