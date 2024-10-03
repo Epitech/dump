@@ -43,6 +43,7 @@ packages_list=(
     clang
     clang-tools
     cmake
+    curl
     diffutils
     docker-compose
     docker.io
