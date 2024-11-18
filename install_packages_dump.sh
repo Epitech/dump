@@ -104,6 +104,7 @@ packages_list=(
     mariadb-server
     nasm
     ncurses-base
+    ncurses-doc
     net-tools
     npm
     nodejs
