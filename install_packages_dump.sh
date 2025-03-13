@@ -32,6 +32,16 @@ add-apt-repository -y -s universe
 apt update
 apt upgrade -y
 
+apt-get install -y ca-certificates curl
+apt-get install -y -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+chmod a+r /etc/apt/keyrings/docker.asc
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt-get update
+
 echo "wireshark-common wireshark-common/install-setuid boolean true" | debconf-set-selections
 
 packages_list=(
@@ -45,8 +55,11 @@ packages_list=(
     cmake
     curl
     diffutils
-    docker-compose
-    docker.io
+    docker-ce
+    docker-ce-cli
+    containerd.io
+    docker-buildx-plugin
+    docker-compose-plugin
     elfutils
     elpa-tuareg
     emacs-nox
