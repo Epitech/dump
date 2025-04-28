@@ -45,8 +45,8 @@ packages_list=(
     cmake
     curl
     diffutils
-    docker-compose
     docker.io
+    docker-compose-v2
     elfutils
     elpa-tuareg
     emacs-nox
@@ -204,3 +204,4 @@ cd .. && rm -rf vim-epitech
 wget https://raw.githubusercontent.com/Epitech/coding-style-checker/main/coding-style.sh -P /tmp/
 chmod +x /tmp/coding-style.sh
 mv /tmp/coding-style.sh /usr/local/bin/coding-style
+
