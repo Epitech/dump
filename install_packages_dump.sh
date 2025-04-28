@@ -204,3 +204,4 @@ cd .. && rm -rf vim-epitech
 wget https://raw.githubusercontent.com/Epitech/coding-style-checker/main/coding-style.sh -P /tmp/
 chmod +x /tmp/coding-style.sh
 mv /tmp/coding-style.sh /usr/local/bin/coding-style
+
