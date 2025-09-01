@@ -26,18 +26,17 @@ echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 
 Do a [Classic Installation](https://www.tomshardware.com/how-to/clean-install-windows-11) of a [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11) on the machine, don't forget to leave some space on the hard drive for Ubuntu (at least 50 GB recommended).
 
-## Ubuntu 23.10 | 24.04 Installation
+## Ubuntu 24.04 Installation
 
 [Ubuntu 24.04](https://releases.ubuntu.com/noble/)
-[Ubuntu 23.10](https://releases.ubuntu.com/mantic/)
 
 ## Install dump scripts
 
 Download [installation scripts](https://github.com/Epitech/dump) to `/tmp`.
 
-Go to `/tmp` (cd) and `chmod +x install_packages_dump.sh`.
+Go to `/tmp` (cd) and `chmod +x dump.sh`.
 
-Run `./install_packages_dump.sh` as root or `sudo /tmp/install_packages_dump.sh`.
+Run `./dump.sh` as root or `sudo /tmp/dump.sh`.
 
 # FAQ
 
