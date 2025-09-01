@@ -28,13 +28,8 @@ chmod +x /etc/apt/detect_proxy.sh
 
 echo 'Acquire::http::Proxy-Auto-Detect "/etc/apt/detect_proxy.sh";' > "/etc/apt/apt.conf.d/01acng"
 
-# Add epitech ppa signing key and repository
-rm -f /etc/apt/trusted.gpg.d/epitechppa.gpg
-gpg --homedir /tmp --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/epitechppa.gpg --keyserver keyserver.ubuntu.com --recv-keys 87daad0e2657726c
-chown root:root /etc/apt/trusted.gpg.d/epitechppa.gpg
-chmod 644 /etc/apt/trusted.gpg.d/epitechppa.gpg
-echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/epitechppa.gpg] https://ppa.launchpadcontent.net/epitech/ppa/ubuntu ./devel main" | tee /etc/apt/sources.list.d/epitechppa.list > /dev/null
-echo "deb-src [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/epitechppa.gpg] https://ppa.launchpadcontent.net/epitech/ppa/ubuntu ./devel main" >> /etc/apt/sources.list.d/epitechppa.list
+# Add epitech ppa repository
+add-apt-repository -y -s ppa:epitech/ppa
 
 # Enable universe
 add-apt-repository -y -s universe
