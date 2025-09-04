@@ -45,7 +45,9 @@ apt update
 echo "postfix postfix/mailname string epitech.eu" | debconf-set-selections
 echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections
 export DEBIAN_FRONTEND=noninteractive
-apt install -y epitech-dump
+apt install -y epitech-cpool
+apt install -y epitech-emacs
+apt install -y epitech-vim
 
 apt purge -y postfix
 
