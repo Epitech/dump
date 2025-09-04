@@ -51,6 +51,8 @@ apt install -y epitech-vim
 
 apt purge -y postfix
 
+snap install teams-for-linux
+
 ## clang-20
 apt install -y wget
 wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | tee /etc/apt/trusted.gpg.d/llvm.asc
