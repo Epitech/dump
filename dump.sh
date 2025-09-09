@@ -60,4 +60,5 @@ echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/llvm.asc] https://apt.llv
 ## epiclang
 wget -O - https://epitech.github.io/epiclang/key.asc | sudo tee /etc/apt/trusted.gpg.d/epiclang-apt.asc
 echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/epiclang-apt.asc] https://epitech.github.io/epiclang/ testing main" | sudo tee /etc/apt/sources.list.d/epiclang.list
+apt update
 apt install -y clang-20 epiclang
