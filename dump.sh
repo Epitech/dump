@@ -8,9 +8,9 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-cat /etc/issue | ( grep "Ubuntu 24.04" ) > /dev/null
+cat /etc/issue | ( grep "Ubuntu 26.04" ) > /dev/null
 if [[ $? -ne 0 ]]; then
-    echo "This script must be run onto an Ubuntu 24.04";
+    echo "This script must be run onto an Ubuntu 26.04";
     exit 1
 fi
 
@@ -42,24 +42,25 @@ add-apt-repository -y -s universe
 apt update
 
 # Install 
-echo "postfix postfix/mailname string epitech.eu" | debconf-set-selections
-echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections
 export DEBIAN_FRONTEND=noninteractive
 
-
-## clang-20
-apt install -y wget
-wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | tee /etc/apt/trusted.gpg.d/llvm.asc
-echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/llvm.asc] https://apt.llvm.org/noble/ llvm-toolchain-noble-20 main" | tee /etc/apt/sources.list.d/llvm.list
-apt update
-apt install -y clang-20
-update-alternatives --install /usr/bin/clang clang /usr/bin/clang-20 100 && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-20 100
-
+# postfix arrives as a recommend of mailutils (itself recommended by emacs-bin-common,
+# pulled in by epitech-emacs) and is not needed here; block it for the duration of the
+# installs so every other recommend is still honoured
+cat > /etc/apt/preferences.d/99-no-postfix <<'EOF'
+Package: postfix
+Pin: release *
+Pin-Priority: -1
+EOF
 
 apt install -y epitech-cpool
 apt install -y epitech-emacs
 apt install -y epitech-vim
 
-apt purge -y postfix
+rm -f /etc/apt/preferences.d/99-no-postfix
+
+# clang-20 comes in via epitech-cpool (banana-coding-style-checker);
+# make bare `clang` resolve to it
+update-alternatives --install /usr/bin/clang clang /usr/bin/clang-20 100 && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-20 100
 
 snap install teams-for-linux
