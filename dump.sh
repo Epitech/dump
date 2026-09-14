@@ -59,8 +59,8 @@ apt install -y epitech-vim
 
 rm -f /etc/apt/preferences.d/99-no-postfix
 
-# clang-20 comes in via epitech-cpool (banana-coding-style-checker);
+# clang-21 comes in via epitech-cpool (banana-coding-style-checker);
 # make bare `clang` resolve to it
-update-alternatives --install /usr/bin/clang clang /usr/bin/clang-20 100 && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-20 100
+update-alternatives --install /usr/bin/clang clang /usr/bin/clang-21 100 && update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-21 100
 
 snap install teams-for-linux
